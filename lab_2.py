@@ -228,3 +228,32 @@ print(language, end=' ')
 print('Programming')
 
 
+print("Task 9 — Collections")
+
+student_name = "Anna"
+student_age = 22
+student_skills = ["Python", "Mathematics", "Machine Learning"]
+student_university = "NSU"
+
+# TODO:
+# Create a dictionary named student with the keys:
+#
+# name
+# age
+# skills
+# university
+
+student = {'name': 'Anna', 'age': 22, 'skills': ["Python", "Math", "English"], 'university': 'NSU'}
+
+# TODO:
+# Print:
+#
+# student's name
+print(student['name'])
+# student's university
+print(student['university'])
+# first skill
+print(student['skills'][0], student['skills'][1], sep='\n')
+# number of skills
+print(len(student['skills']))
+# Use dictionary access, indexing, and len().
