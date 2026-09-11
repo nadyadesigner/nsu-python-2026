@@ -160,3 +160,71 @@ print(minutes, 'minute(s)', 'and', remaining_seconds, 'second(s)')
 print()
 
 
+# ============================================================
+# Task 7 — Basic String Operations
+# ============================================================
+
+print("Task 7 — Basic String Operations")
+
+first_name = input("First name: ")
+last_name = input("Last name: ")
+
+# TODO:
+# Create full_name using string concatenation.
+
+full_name = first_name + ' ' + last_name + ' '
+
+# TODO:
+# Print:
+#
+# Full name: <full_name>
+# Number of characters: <length>
+# First character: <first character>
+# Last character: <last character>
+# First three characters: <slice>
+
+print(full_name)
+print(len(full_name))
+print(full_name[0])
+print(full_name[-1])
+print(full_name[0:3])
+
+# TODO:
+# Print full_name three times using string repetition.
+full_name3=full_name * 3
+print(full_name3)
+# ============================================================
+# Task 8 — Useful print() Options
+# ============================================================
+
+print("Task 8 — Useful print() Options")
+
+language = "Python"
+course = "AI and Big Data Analytics"
+university = "NSU"
+
+# TODO:
+# Print the three values on one line separated by:
+#
+#  |
+#
+print(language, course, university, sep=' | ')
+
+# Expected:
+# Python | AI and Big Data Analytics | NSU
+#
+# Use sep=
+
+
+# TODO:
+# Use two print() calls and end= so that the result is:
+#
+# Python Programming
+#
+# Do not write "Python Programming" as one string.
+
+
+print(language, end=' ')
+print('Programming')
+
+
