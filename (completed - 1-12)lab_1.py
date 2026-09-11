@@ -317,4 +317,46 @@ print(f"Radius is: {radius:.1f}")
 print(f"Area is: {area:.2f}")
 print()
 
+# ============================================================
+# Task 12 — Trip Cost Calculator
+# ============================================================
+
+print("Task 12 — Trip Cost Calculator")
+
+# A car consumes a certain number of liters of fuel
+# for every 100 kilometers.
+
+# TODO:
+# Ask the user to enter:
+#
+# distance in kilometers
+distance=float(input('enter distance in kilometers: '))
+# fuel consumption in liters per 100 km
+fuel_consumption=float(input('enter fuel consumption in liters per 100 km: '))
+# fuel price per liter
+fuel_price=float(input('enter fuel price per liter: '))
+
+# TODO:
+# Calculate how many liters of fuel are required.
+#
+# Formula:
+liters_needed = (distance / 100) * fuel_consumption
+
+# TODO:
+# Calculate the total cost of the trip.
+
+trip_cost = liters_needed * fuel_price
+
+# TODO:
+# Print something similar to:
+#
+# Distance: 450.0 km
+# Fuel required: 36.00 liters
+# Trip cost: 2160.00
+#
+# Use f-strings and two decimal places where appropriate.
+print(f"Distance: {distance}",
+      f"Fuel required: {liters_needed}",
+      f"Trip_cost: {trip_cost}", sep='\n'
+)
 
