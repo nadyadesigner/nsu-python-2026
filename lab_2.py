@@ -262,3 +262,45 @@ print(student['skills'][0], student['skills'][1], sep='\n')
 # number of skills
 print(len(student['skills']))
 # Use dictionary access, indexing, and len().
+
+
+# ============================================================
+# Task 11 — Small Statistics Report
+# ============================================================
+
+print("Task 11 — Small Statistics Report")
+
+scores = [78, 92, 85, 69, 88]
+
+# TODO:
+# Calculate:
+#
+# number of scores
+number = len(scores)
+# minimum score
+min_scores = min(scores)
+# maximum score
+max_scores = max(scores)
+# total score
+sum_scores = sum(scores)
+# mean score
+mean_score=sum(scores)/len(scores)
+#
+# Use built-in functions.
+
+
+# TODO:
+# Print a clean report:
+#
+# Number of scores: 5
+# Minimum: 69
+# Maximum: 92
+# Mean: 82.40
+#
+# Format the mean to exactly two decimal places.
+
+
+print(f" Number of scores: {number}\n",
+    f"Minimum: {min_scores}\n",
+    f"Maximum: {max_scores}\n",
+    f"Mean: {mean_score}\n")
