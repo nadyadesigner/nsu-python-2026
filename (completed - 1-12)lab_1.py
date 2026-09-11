@@ -329,23 +329,23 @@ print("Task 12 — Trip Cost Calculator")
 # TODO:
 # Ask the user to enter:
 #
-# distance in kilometers
+# distance in kilometers #450
 distance=float(input('enter distance in kilometers: '))
-# fuel consumption in liters per 100 km
+# fuel consumption in liters per 100 km #8
 fuel_consumption=float(input('enter fuel consumption in liters per 100 km: '))
-# fuel price per liter
+# fuel price per liter #60
 fuel_price=float(input('enter fuel price per liter: '))
 
 # TODO:
 # Calculate how many liters of fuel are required.
 #
 # Formula:
-liters_needed = (distance / 100) * fuel_consumption
+liters_needed = (distance / 100) * fuel_consumption #36
 
 # TODO:
 # Calculate the total cost of the trip.
 
-trip_cost = liters_needed * fuel_price
+trip_cost = liters_needed * fuel_price #2160
 
 # TODO:
 # Print something similar to:
@@ -355,8 +355,8 @@ trip_cost = liters_needed * fuel_price
 # Trip cost: 2160.00
 #
 # Use f-strings and two decimal places where appropriate.
-print(f"Distance: {distance}",
-      f"Fuel required: {liters_needed}",
-      f"Trip_cost: {trip_cost}", sep='\n'
+print(f"Distance: {distance:.2f}",
+      f"Fuel required: {liters_needed:.2f}",
+      f"Trip_cost: {trip_cost:.2f}", sep='\n'
 )
 
