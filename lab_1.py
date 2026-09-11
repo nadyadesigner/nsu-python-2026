@@ -174,21 +174,21 @@ print("Task 8 — Python Collections")
 #       age
 #       university
 
-#programming_languages = ['Python', 'Go', 'C++']
-#numbers = (2, 4, 5)
-#cities = set{'Zeya', 'Novosibirsk', 'Moscow'}
-#student = {name:'Nikita', 'Fedor', 'David', age:'23', '28', '46', university:'NSU','NSU','NSU'}
+programming_languages = ['Python', 'Go', 'C++']
+numbers = (2, 4, 5)
+cities = {"New-York", "Los Angeles", "Ottawa"}
+student = {'name':'Nikita', 'age':'46', 'university':'NSU'}
 
 # TODO:
 # Print all four variables.
 
-#print(programming_languages, numbers, cities, student, sep='\n')
+print(programming_languages, numbers, cities, student, sep='\n')
 
 # TODO:
 # Use type() to print the type of each collection.
 
 
-print()
+print(type(programming_languages), type(numbers), type(cities), type(student), sep='\n')
 
 
 # ============================================================
@@ -252,29 +252,33 @@ student = {
 
 # TODO:
 # Print the student's name.
-print()
+print(student['name'])
 
 
 # TODO:
 # Print the student's age.
+print(student['age'])
 
 # TODO:
 # Check whether "age" exists in the dictionary.
 # Print the result.
+print('"age" exists in the dictionary: ', 'age' in student)
 
 # TODO:
 # Check whether "email" exists in the dictionary.
 # Print the result.
+print('"email" exists in the dictionary: ', 'email' in student)
 
 
 numbers = [10, 20, 30, 40]
 
 # TODO:
 # Check whether 20 is in numbers.
+print('20 is in numbers: ', 20 in numbers)
 
 # TODO:
 # Check whether 50 is in numbers.
-
+print('50 is in numbers: ', 50 in numbers)
 
 print()
 
@@ -288,12 +292,12 @@ print("Task 11 — Formatted Output")
 # TODO:
 # Ask the user to enter the radius of a circle.
 
-radius = 0.0
+radius = float(input('enter the radius of a circle: '))
 
 # Use:
 # area = 3.14159 * radius ** 2
 
-area = 0.0
+area = 3.14159 * radius ** 2
 
 # TODO:
 # Print the radius and area using an f-string.
@@ -308,50 +312,8 @@ area = 0.0
 # {value:.2f}
 
 
+print(f"Radius is: {radius:.1f}")
+print(f"Area is: {area:.2f}")
 print()
-
-
-# ============================================================
-# Task 12 — Trip Cost Calculator
-# ============================================================
-
-print("Task 12 — Trip Cost Calculator")
-
-# A car consumes a certain number of liters of fuel
-# for every 100 kilometers.
-
-# TODO:
-# Ask the user to enter:
-#
-# distance in kilometers
-# fuel consumption in liters per 100 km
-# fuel price per liter
-
-distance = 0.0
-fuel_consumption = 0.0
-fuel_price = 0.0
-
-# TODO:
-# Calculate how many liters of fuel are required.
-#
-# Formula:
-# liters_needed = distance / 100 * fuel_consumption
-
-liters_needed = 0.0
-
-# TODO:
-# Calculate the total cost of the trip.
-
-trip_cost = 0.0
-
-# TODO:
-# Print something similar to:
-#
-# Distance: 450.0 km
-# Fuel required: 36.00 liters
-# Trip cost: 2160.00
-#
-# Use f-strings and two decimal places where appropriate.
-
 
 
