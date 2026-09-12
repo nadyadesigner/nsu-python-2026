@@ -406,4 +406,94 @@ Total_price = Price * Quantity - Discount_percent / 100 * Price * Quantity
 
 print("Final price is: ",Total_price)
 
+# ============================================================
+# Optional Challenge — Student Score Summary
+# ============================================================
+
+print("Optional Challenge — Student Score Summary")
+
+# Create a small program using only concepts from Sections 1–2.
+#
+# Ask the user for:
+#
+# student name
+# three test scores
+#
+name=input('enter your name: ')
+
+score_1, score_2, score_3 = float(input('enter a first score ')), float(input('enter a second score ')), float(input('enter a third score '))
+# Store the three scores in a list.
+
+scores=[score_1, score_2, score_3]
+# Calculate:
+
+min_score=min(scores)
+# minimum score
+max_score=max(scores)
+# maximum score
+mean_score=sum(scores)/len(scores)
+# mean score
+#
+# Print a clean summary similar to:
+#
+print(f"Student: {name}",
+      f"Scores: {scores}", f"Minimum: {min_score}", f"Maximum: {max_score}",
+      f"Mean: {mean_score:.2f}", sep='\n')
+
+# Student: Anna
+# Scores: [78.0, 85.0, 91.0]
+# Minimum: 78.00
+# Maximum: 91.00
+# Mean: 84.67
+#
+# Use:
+# input()
+# float()
+# list
+# min()
+# max()
+# sum()
+# len()
+# f-strings
+
+
+# ============================================================
+# Task 13 — Multiple Assignment
+# ============================================================
+
+print("Task 13 — Multiple Assignment")
+
+# TODO:
+# Assign these three values using ONE statement:
+#
+# x = 10
+# y = 20
+# z = 30
+
+x,y,z = int(input('enter x: ')),int(input('enter y: ')),int(input('enter z: '))
+
+
+# TODO:
+# Print x, y, and z.
+
+print(x,y,z)
+
+# TODO:
+# Swap a and b using one Python statement.
+
+a = 5
+b = 10
+
+print(a,b)
+
+a, b = b, a
+
+# Expected after swapping:
+# a = 10
+# b = 5
+
+
+print(a,b)
+
+
 
