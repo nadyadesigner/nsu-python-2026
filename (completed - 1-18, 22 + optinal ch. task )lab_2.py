@@ -495,6 +495,234 @@ a, b = b, a
 
 print(a,b)
 
+# ============================================================
+# Task 14 — String Methods
+# ============================================================
+
+print("Task 14 — String Methods")
+
+text = "  Python Programming Course  "
+
+# TODO:
+# Print the text:
+#
+
+text_1 = text.strip()
+print(text.strip(), text_1.lower(), text_1.upper(), text_1.replace('Course', 'Lab'), sep='\n')
+
+
+# 1. without surrounding spaces
+# 2. in lowercase
+# 3. in uppercase
+# 4. with "Course" replaced by "Lab"
+
+# TODO:
+# Check and print whether the cleaned text:
+#
+print(text_1.startswith('Python'))
+print(text_1.endswith('Course'))
+print(text_1.endswith('Lab'))
+
+# starts with "Python"
+# ends with "Course"
+#
+# Use:
+# strip()
+# lower()
+# upper()
+# replace()
+# startswith()
+# endswith()
+
+
+
+# ============================================================
+# Task 15 — Boolean Expressions
+# ============================================================
+
+print("Task 15 — Boolean Expressions")
+
+age = 22
+score = 85
+is_master_student = True
+
+# TODO:
+# Print the result of:
+
+print(age >= 18) #True
+print(score >= 60) #True
+print(score >= 60 and is_master_student) #True
+print(score < 60 or age < 18) #False
+print(not is_master_student) #False
+
+# TODO:
+# Predict and then print:
+
+print('the second part:')
+
+print(bool(0))
+print(bool(1)) #True
+print(bool("")) #False - empty
+print(bool("Python")) #False - ?? - not empty => not False => True
+print(bool([])) #False - empty => 0 => False
+print(bool([1, 2])) #False - ?? - not empty => not False => True
+
+
+print()
+
+# ============================================================
+# Task 16 — Membership
+# ============================================================
+
+print("Task 16 — Membership")
+
+numbers = [10, 20, 30]
+text = "Python Programming"
+student = {
+    "name": "Anna",
+    "age": 22,
+}
+
+# TODO:
+# Print the result of:
+
+print(20 in numbers) #True
+print(50 not in numbers) #True
+print("Python" in text) #True
+print("Java" not in text) #True
+print("age" in student) #True
+print("email" in student) #False
+
+
+print()
+
+# ============================================================
+# Task 17 — Time Decomposition
+# ============================================================
+
+print("Task 17 — Time Decomposition")
+
+# Ask the user to enter a duration in seconds.
+#
+# Example:
+# 9374
+#
+duration=int(input('enter a duration in seconds: '))
+# Convert it into:
+hours=minutes=seconds=0
+
+# hours
+# minutes
+# seconds
+#
+
+#duration = hours * 60 * 60 + minutes * 60  + sec
+#duration//60 = hours * 60 + minutes
+#(duration//60)//60 = hours
+#sec = duration -hours*60*60 - minutes * 60
+
+hours = (duration//60)//60
+print(hours)
+minutes = duration//60 - hours * 60
+print(minutes)
+seconds = duration - hours * 60*60 - minutes*60
+print(seconds)
+
+print(f"{duration} seconds = {hours} hour(s), {minutes} minute(s), {seconds} second(s)")
+
+# Expected:
+# 9374 seconds = 2 hour(s), 36 minute(s), 14 second(s)
+#
+# Use only:
+# int()
+# //
+# %
+# arithmetic
+# f-strings
+
+total_seconds = 0
+
+# TODO:
+# Read total_seconds from the user.
+
+hours = 0
+remaining_seconds = 0
+minutes = 0
+seconds = 0
+
+# TODO:
+# Calculate all four values.
+
+# TODO:
+# Print the formatted result.
+
+
+print()
+
+
+# ============================================================
+# Task 18 — Order Invoice
+# ============================================================
+
+print("Task 18 — Order Invoice")
+
+# A customer buys three different products.
+#
+# Ask for:
+# product 1 price and quantity
+# product 2 price and quantity
+# product 3 price and quantity
+
+price_1, quantity_1 = float(input('enter product 1 price: ')), int(input('enter product 1 quantity: '))
+price_2, quantity_2 = float(input('enter product 2 price: ')), int(input('enter product 2 quantity: '))
+price_3, quantity_3 = float(input('enter product 3 price: ')), int(input('enter product 3 quantity: '))
+
+
+#
+# Calculate:
+# subtotal for every product
+# total before tax
+# tax = 5%
+# final total
+
+subtotal=price_1*quantity_1+price_2*quantity_2+price_3*quantity_3
+tax=subtotal*0.05
+total = subtotal+tax
+print()
+print()
+print(f"Product 1: {price_1*quantity_1:.2f}",
+      f"Product 2: {price_2*quantity_2:.2f}",
+      f"Product 3: {price_3*quantity_3:.2f}", sep='\n')
+print(30*'-')
+print(f"Subtotal: {subtotal:.2f}", f"Tax: {tax:.2f}", f"Total: {total:.2f}", sep='\n')
+
+#
+# Example output:
+#
+# Product 1: 1200.00
+# Product 2: 750.00
+# Product 3: 400.00
+# --------------------
+# Subtotal: 2350.00
+# Tax: 117.50
+# Total: 2467.50
+#
+# Do not use if, loops, or functions.
+
+
+# TODO:
+# Read all six values.
+
+
+
+# TODO:
+# Perform the calculations.
+
+# TODO:
+# Print a clean invoice using f-strings.
+
+
+print()
 
 # ============================================================
 # Task 22 — Debug the Program
