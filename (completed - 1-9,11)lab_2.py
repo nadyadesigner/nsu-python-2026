@@ -159,6 +159,36 @@ print(minutes, 'minute(s)', 'and', remaining_seconds, 'second(s)')
 
 print()
 
+# ============================================================
+# Task 6 — Conversion Is Not Always Reversible
+# ============================================================
+
+print("Task 6 — Type Conversion")
+
+value = 17.95
+
+# TODO:
+# Convert value to int and print it.
+
+print(int(value))
+
+# Question:
+# Does int() round the value? - no, int() shows only integer part
+
+integer_value = int(value)
+
+# TODO:
+# Convert integer_value back to float and print it.
+
+float_value = float(value)
+print(float_value)
+
+# TODO:
+# Convert integer_value to str and print:
+str_value=str(value)
+print(str_value, str_value[3], sep='\n')
+print(type(str(value)))
+
 
 # ============================================================
 # Task 7 — Basic String Operations
