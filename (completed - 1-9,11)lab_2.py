@@ -294,6 +294,49 @@ print(len(student['skills']))
 # Use dictionary access, indexing, and len().
 
 
+ ============================================================
+# Task 10 — Mutable and Immutable Objects
+# ============================================================
+
+print("Task 10 — Mutable and Immutable Objects")
+
+# List example — mutable
+
+numbers = [10, 20, 30]
+same_numbers = numbers
+
+# TODO:
+# Change the first item in numbers to 99.
+
+numbers.insert(0, 99)
+print(numbers, same_numbers)
+# numbers
+# same_numbers
+#
+# Observe what happened.
+
+
+# String example — immutable
+
+text = "Python"
+same_text = text
+
+# TODO:
+# Create a new string by adding " Course" to text.
+
+new_text=text+' '+"Course"
+print(text, same_text, new_text, sep='\n')
+# Then print:
+#
+# text
+# same_text
+#
+# Compare this result with the list example.
+
+
+print()
+
+
 # ============================================================
 # Task 11 — Small Statistics Report
 # ============================================================
@@ -334,3 +377,33 @@ print(f" Number of scores: {number}\n",
     f"Minimum: {min_scores}\n",
     f"Maximum: {max_scores}\n",
     f"Mean: {mean_score}\n")
+
+
+
+# ============================================================
+# Task 12 — PEP 8 Cleanup
+# ============================================================
+
+print("Task 12 — PEP 8 Cleanup")
+
+# The following code works, but it is difficult to read.
+#
+# TODO:
+# Rewrite it using:
+#
+# meaningful variable names
+# snake_case
+# spaces around operators
+# intermediate variables
+# formatted output
+#
+# Keep the same calculation.
+
+Price = 1250
+Quantity = 3
+Discount_percent = 10
+Total_price = Price * Quantity - Discount_percent / 100 * Price * Quantity
+
+print("Final price is: ",Total_price)
+
+
