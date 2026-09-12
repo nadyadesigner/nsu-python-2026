@@ -496,4 +496,45 @@ a, b = b, a
 print(a,b)
 
 
+# ============================================================
+# Task 22 — Debug the Program
+# ============================================================
+
+print("Task 22 — Debug the Program")
+
+# The program below is supposed to calculate the average
+# of three scores entered by the user.
+#
+# It currently contains several problems.
+#
+# Find and fix them.
+#
+# Do NOT use if, try-except, loops, or functions.
+#
+# Think about:
+# - input() types
+# - variable names
+# - arithmetic
+# - operator precedence
+# - PEP 8
+# - formatted output
+
+
+# score1=input("Score 1: ")
+# Score2=input("Score 2: ")
+# score3=input("Score 3: ")
+# total=score1+Score2+score3
+# average=total/3
+# print("Average:"+average)
+
+
+# TODO:
+# Rewrite the program correctly below.
+
+score_1=int(input("Score 1: "))
+score_2=int(input("Score 2: "))
+score_3=int(input("Score 3: "))
+total = score_1 + score_2 + score_3
+average = total / 3
+print("Average:", average)
 
