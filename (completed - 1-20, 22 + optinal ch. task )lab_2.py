@@ -725,6 +725,116 @@ print(f"Subtotal: {subtotal:.2f}", f"Tax: {tax:.2f}", f"Total: {total:.2f}", sep
 print()
 
 # ============================================================
+# Task 19 — Coordinate Analysis
+# ============================================================
+
+from math import sqrt as sqrt
+
+print("Task 19 — Coordinate Analysis")
+
+# Ask the user for two points:
+#
+# (x1, y1)
+# (x2, y2)
+
+x1, y1 = float(input("enter the first point's x: ")), float(input("enter the first point's y: "))
+x2, y2 = float(input("enter the second's point's x: ")),float(input("enter the second point's y: "))
+#
+# Store each point as a tuple.
+#
+point_1=(x1, y1)
+point_2=(x2, y2)
+
+print(type(point_1))
+
+# Calculate:
+
+
+# squared distance
+
+# distance
+#
+# Formula:
+#
+# distance = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
+#
+# Print both points and the calculated distance.
+
+
+
+# TODO:
+# Read the four coordinates.
+
+
+# TODO:
+# Create the two tuples.
+
+delta_x = x2 - x1
+delta_y = y2 - y1
+distance_squared = (x2 - x1) ** 2 + (y2 - y1) ** 2
+distance = sqrt(distance_squared)
+#print(point_1, point_2, delta_x, delta_y, distance_squared, f'{distance:.2f}')
+
+# TODO:
+# Perform the calculations.
+
+# TODO:
+# Print the result with two decimal places.
+
+
+print(f"difference in x: {delta_x:.2f}", f"difference in y: {delta_y:.2f}", sep='\n')
+print(f"distance: {distance:.2f}")
+
+# squared distance
+# distance
+#
+
+print()
+
+
+# ============================================================
+# Task 20 — Working with Complex Numbers
+# ============================================================
+
+print("Task 20 — Complex Numbers")
+
+# Section 2 includes Python's basic data types.
+# One numerical type that is easy to forget is complex.
+#
+# Given:
+
+z1 = 3 + 4j
+z2 = 2 - 1j
+
+# TODO:
+# Print:
+#
+print(z1) #3+4j
+print(z2) #2-1j
+print(type(z1)) #complex number
+print(z1 + z2) #5+3j
+print(z1 - z2) #1+5j
+print(z1 * z2) #(3+4j)(2-1j)=6-3j+8j+4=  10+5j
+print(z1 / z2) # (3+4j)/(2-1j) - ?? - 0?4+2?2j
+#
+# Also print:
+#
+print(z1.real) #3
+print(z1.imag) #4
+print(z2.real) #2
+print(z2.imag) #-1
+# Predict the type of each arithmetic result before running it.
+
+
+print()
+
+
+
+
+
+
+
+# ============================================================
 # Task 22 — Debug the Program
 # ============================================================
 
@@ -765,4 +875,3 @@ score_3=int(input("Score 3: "))
 total = score_1 + score_2 + score_3
 average = total / 3
 print("Average:", average)
-
