@@ -830,7 +830,87 @@ print()
 
 
 
+# ============================================================
+# Task 21 — Student Data Record
+# ============================================================
 
+print("Task 21 — Student Data Record")
+
+# Ask the user for:
+#
+# name
+# age
+# university
+# first score
+# second score
+# third score
+#
+# Store the scores in a list.
+#
+# Store all student information in a dictionary:
+#
+# {
+#     "name": ...,
+#     "age": ...,
+#     "university": ...,
+#     "scores": [...]
+# }
+#
+# Then calculate:
+#
+# number of scores
+# minimum score
+# maximum score
+# mean score
+#
+# Print a formatted student report.
+#
+# Do not use loops.
+
+student_name = input('enter your name: ')
+student_age = int(input('enter your age: '))
+university = input('enter your university: ')
+
+score_1 = float(input('enter a first score: '))
+score_2 = float(input('enter a second score: '))
+score_3 = float(input('enter a third score: '))
+
+scores = [score_1, score_2, score_3]
+student = {'name': student_name, 'age': student_age, 'scores': scores}
+
+#print(student['name'])
+
+# TODO:
+# Read the values.
+
+# TODO:
+# Create scores.
+
+# TODO:
+# Create student.
+
+score_count = sum(scores)
+minimum_score = min(scores)
+maximum_score = max(scores)
+mean_score = score_count/len(scores)
+
+# TODO:
+# Calculate the statistics.
+
+#print(score_count, minimum_score, maximum_score, mean_score)
+
+# TODO:
+# Print a clean report.
+print('-'*30)
+print('Report:')
+print('-'*30)
+
+print(f'Name: {student["name"]}', f"Age: {student['age']}", f"Scores: {student['scores']}", sep='\n')
+
+print('-'*30)
+
+print(f"Mean score: {mean_score:.2f}", f"Maximum score: {maximum_score}", f"Minimum score: {minimum_score}", sep='\n')
+print('-'*30)
 
 
 
