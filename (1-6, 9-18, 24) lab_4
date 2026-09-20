@@ -529,6 +529,37 @@ print(f"{colds} cold days", f"{milds} mild days", f"{warms} warm days", f"{hots}
 
 print('='*30)
 
+
+print('============================================================')
+print('Task 19 — Count positive values')
+print('============================================================')
+numbers = [5, -2, 0, 8, -4, 11, 0, -1, 7]
+
+# Use a loop to count how many values are:
+#
+#   positive
+#   negative
+#   zero
+# Print:
+# Positive: ...
+# Negative: ...
+# Zero: ...
+# Do not use list comprehensions.
+# Write your code below:
+
+positives = negatives = zeros = 0
+for i in numbers:
+    if i > 0:
+        positives += 1
+    elif i < 0:
+        negatives += 1
+    elif i == 0:
+        zeros += 1
+print(f"{positives} positive numbers", f"{negatives} negative numbers", f"{zeros} zero numbers", sep='\n')
+
+
+
+
 # ============================================================
 print('EXTRA Task 24 — Multiplication table')
 # ============================================================
