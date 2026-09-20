@@ -480,4 +480,84 @@ print(f"Positive: {positives}", f"Negatives: {negatives}", f"Zero: {zeros}",
 print('='*30)
 
 
+# ============================================================
+print('EXTRA Task 17 — Highest and lowest score')
+# ============================================================
+print('='*30)
+
+scores = [71, 85, 42, 96, 58, 83, 67, 91]
+
+# Find the highest and lowest scores using a for loop.
+#
+# Do NOT use:
+#   max()
+#   min()
+#   sorted()
+#
+# Hint:
+# Start with:
+# highest = scores[0]
+
+# lowest = scores[0]
+#
+# Expected:
+# Highest: 96
+# Lowest: 42
+
+# Write your code below:
+
+highest = scores[0]
+lowest = scores[0]
+for i in scores:
+    if i >= highest:
+        highest = i
+    elif i <= lowest:
+        lowest = i
+print('the highest: ', highest)
+print('the lowest: ', lowest)
+
+
+
+print('='*30)
+# ============================================================
+print('EXTRA Task 18 — Temperature analysis')
+# ============================================================
+print('='*30)
+temperatures = [12, 18, 25, 31, 7, 22, 35, 16, 29, 4]
+hots = colds = milds = warms = 0
+for i in temperatures:
+    if i <= 10:
+        print(f"{i}: Cold")
+        colds += 1
+    if 10 < i <= 19:
+        print(f"{i}: Mild")
+        milds += 1
+    if 20 < i <= 29:
+        print(f"{i}: Warm")
+        warms += 1
+    if i <= 30:
+        print(f"{i}: Hot")
+        hots +=1
+print('.'*30)
+print(f"{colds} cold days", f"{milds} mild days", f"{warms} warm days", f"{hots} hot days", sep='\n')
+
+# Classify every temperature:
+#
+#   Cold -> below 10
+#   Mild -> 10–19
+#   Warm -> 20–29
+#   Hot  -> 30 or above
+#
+# Example output:
+# 12: Mild
+# 18: Mild
+# 25: Warm
+# ...
+#
+# After processing all temperatures, print how many
+# temperatures belong to each category.
+
+# Write your code below:
+
+print('='*30)
 
