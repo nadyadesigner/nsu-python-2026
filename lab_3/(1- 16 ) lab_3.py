@@ -256,6 +256,153 @@ else:
 # Write your code below:
 print('='*30)
 
+
+# ============================================================
+print('Task 11 — Skip invalid scores')
+# ============================================================
+print('='*30)
+raw_scores = [78, -5, 91, 120, 66, 0, 88, 101, 54]
+average_valid = 0
+total_valid = 1
+
+# Valid scores are from 0 to 100 inclusive.
+#
+# Use continue to skip invalid scores.
+# For valid scores:
+#   print each valid score
+#   calculate the average of valid scores
+
+print('Valid scores: ')
+for i in raw_scores:
+    if 0 <= i <= 100:
+        print(i)
+        average_valid += i
+        total_valid += 1
+    else:
+        continue
+
+print(f"The average of valid scores: {average_valid/total_valid:.2f}")
+# At the end print:
+#   Valid scores: ...
+#   Average: ...
+#
+# Required:
+# Use continue.
+
+# Write your code below:
+
+print('='*30)
+# ============================================================
+print('Task 12 — Dictionary iteration')
+# ============================================================
+print('='*30)
+student_scores = {
+    "Anna": 92,
+    "Boris": 58,
+    "Sasha": 76,
+    "Maria": 49,
+    "Oleg": 84,
+}
+
+# Iterate using .items().
+#
+# Print:
+#   Anna: Pass
+#   Boris: Fail
+#   ...
+#
+# Score >= 60 means Pass.
+# Then print how many students passed.
+
+# Write your code below:
+
+#print(student_scores.items())
+passes = 0
+for key, value in student_scores.items():
+    if value >= 60:
+        print(key, ': Pass')
+        passes += 1
+    elif value < 60:
+        print(key, ': Fail')
+#    print(key, value)
+print(f"{passes} students passed an exam")
+
+
+print()
+
+print('='*30)
+# ============================================================
+print('BONUS Task 13 — FizzBuzz')
+# ============================================================
+print('='*30)
+# Print numbers 1 through 30.
+#
+# If divisible by both 3 and 5 -> FizzBuzz
+# If divisible only by 3       -> Fizz
+# If divisible only by 5       -> Buzz
+# Otherwise print the number.
+#
+# Hint:
+# Check the most specific condition first.
+
+# Write your code below:
+
+divisible_3_5 = divisible_3 = divisible_5 = 0
+
+for i in range(1,31):
+    if i % 3 == 0 and i % 5 == 0:
+        divisible_3_5 += 1
+        print('FizzBuzz')
+    elif i % 5 == 0:
+        divisible_5 += 1
+        print('Buzz')
+    elif i % 3== 0:
+        print('Fizz')
+        divisible_3 += 1
+    else:
+        print(i)
+
+print('.'*30)
+
+print(f"divisible by 3 and 5: {divisible_3_5}", f"divisible by 3: {divisible_3}", f"divisible by 5: {divisible_5}", sep='\n')
+
+print('='*30)
+
+
+# ============================================================
+print('BONUS Task 14 — Limited login attempts')
+# ============================================================
+print('='*30)
+correct_pin = "4821"
+
+# Give the user at most 3 attempts to enter the PIN.
+# Use:
+#   for
+#   range()
+#   break
+#for i in range(3):
+  #  i = int(input(''))
+# Correct PIN:
+#   Access granted
+# Three wrong attempts:
+#   Access denied
+# Do NOT use a while loop.
+# Write your code below:
+print('='*30)
+
+for i in range(3):
+    password = input('enter password: ')
+    if password == correct_pin:
+        print('access granted!')
+        break
+    elif password != correct_pin:
+        print('access denied')
+        if i == 2:
+            print('no attempts anymore')
+
+print('='*30)
+
+
 # ============================================================
 print('EXTRA Task 15 — Largest of three numbers')
 # ============================================================
