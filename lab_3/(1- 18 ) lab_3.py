@@ -561,3 +561,35 @@ print(f"{colds} cold days", f"{milds} mild days", f"{warms} warm days", f"{hots}
 
 print('='*30)
 
+
+# ============================================================
+print('EXTRA Task 24 — Multiplication table')
+# ============================================================
+print('='*30)
+# Print a multiplication table from 1 to 5.
+#
+# Expected format:
+#
+# 1 2 3 4 5
+# 2 4 6 8 10
+# 3 6 9 12 15
+# 4 8 12 16 20
+# 5 10 15 20 25
+#
+# Required:
+# Use nested for loops.
+#
+# Hint:
+#
+# for row in range(...):
+#     for column in range(...):
+#         ...
+
+# Write your code below:
+
+for row in range(1,6):
+    for column in range(1,6):
+        print(row*column, end=' ')
+    print()
+
+
