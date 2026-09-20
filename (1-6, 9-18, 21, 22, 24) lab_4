@@ -559,6 +559,60 @@ print(f"{positives} positive numbers", f"{negatives} negative numbers", f"{zeros
 
 
 
+print('============================================================')
+print('Task 21 — Function: absolute_value')
+print('============================================================')
+# Write a function:
+#   absolute_value(number)
+# It should return the absolute value of the number.
+# Examples:
+# absolute_value(5)   -> 5
+# absolute_value(-8)  -> 8
+# absolute_value(0)   -> 0
+# Do NOT use:
+#   abs()
+# Test the function with:
+#   10
+#   -7
+#   0
+# Print the returned values.
+# Write your code below:
+
+def absolute_value(number):
+
+    if number > 0:
+        return(number)
+    elif number < 0:
+        return(number*(-1))
+    else:
+        return(0)
+
+print(absolute_value(10), absolute_value(-7), absolute_value(0), sep='\n')
+
+print('============================================================')
+print('Task 22 — Function: largest_of_three')
+print('============================================================')
+# Write a function:
+#   largest_of_three(a, b, c)
+# It should return the largest of the three numbers.
+# Do NOT use:
+#   max()
+# Test with:
+# largest_of_three(4, 9, 2)
+# largest_of_three(10, 3, 10)
+# largest_of_three(-1, -5, -3)
+# Print the returned results.
+# Write your code below:
+
+def largest_of_three(number1, number2, number3):
+    largest = number1
+    for i in (number1, number2, number3):
+        if i > largest:
+            largest = i
+    return(largest)
+
+print(largest_of_three(10, -5, 0), largest_of_three(4, 9, 2), largest_of_three(10, 3, 10), largest_of_three(-1, -5, -3), sep='\n')
+
 
 # ============================================================
 print('EXTRA Task 24 — Multiplication table')
