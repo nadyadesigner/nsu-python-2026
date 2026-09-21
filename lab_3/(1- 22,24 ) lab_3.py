@@ -563,6 +563,165 @@ print('='*30)
 
 
 # ============================================================
+print('EXTRA Task 19 — Running balance')
+# ============================================================
+print('='*30)
+transactions = [500, -120, -80, 250, -700, 300, -200]
+
+# The starting balance is:
+balance = 1000
+
+# Process every transaction in order.
+#
+# Positive numbers mean money added.
+# Negative numbers mean money spent.
+#
+# After each transaction print the current balance.
+#
+# Example:
+# Transaction: 500
+# Balance: 1500
+#
+# At the end print:
+# Final balance: ...
+#
+# Also count how many transactions were:
+#   deposits
+#   withdrawals
+
+# Write your code below:
+
+for i in transactions:
+    balance += i
+    print(f"Transaction: {i}", f"Balance: {balance}", sep='\n')
+    print('.'*20)
+#    print(type(i))
+
+print(f"Total balance: {balance}")
+
+
+print('='*30)
+
+
+# ============================================================
+print('EXTRA Task 20 — Find first number divisible by 7 and 11')
+# ============================================================
+
+# Search numbers from 1 through 500.
+#
+# Find the FIRST number that is divisible by both 7 and 11.
+#
+# Print the number and immediately stop the loop.
+#
+# Required:
+#   for
+#   range()
+#   break
+#
+# Expected:
+# 77
+
+# Write your code below:
+
+for i in range(1,501):
+    if i % 7 == 0 and i % 11 == 0:
+        print('The first number divisible by 7 and 11 is',i)
+        break
+
+
+print('='*30)
+# ============================================================
+print('EXTRA Task 21 — Limited number guessing')
+# ============================================================
+print('='*30)
+
+secret_number = 37
+
+# Give the user at most 5 attempts to guess the secret number.
+#
+# After each incorrect guess:
+#
+#   if guess < secret_number:
+#       print "Too low"
+#
+#   if guess > secret_number:
+#       print "Too high"
+#
+# Correct guess:
+#   print "Correct"
+#   stop immediately
+#
+# If all 5 attempts are used without success:
+#   print "Out of attempts"
+#
+# Required:
+#   for
+#   range()
+#   if / elif / else
+#   break
+#
+# Do NOT use while.
+
+# Write your code below:
+
+attempts = attempt = 0
+for i in range(1,6):
+    attempt = int(input('guess number: '))
+    if attempt > secret_number:
+        print('too high')
+    elif attempt < secret_number:
+        print('too low')
+    elif attempt == secret_number:
+        print('correct')
+        break
+if i == 5:
+    print('out of attempts')
+
+
+
+print('='*30)
+# ============================================================
+print('EXTRA Task 22 — Count increases')
+# ============================================================
+print('='*30)
+
+values = [10, 14, 13, 18, 22, 20, 25, 25, 30]
+
+# Count how many times a value is greater than
+# the value immediately before it.
+#
+# Comparisons:
+# 10 -> 14   increase
+# 14 -> 13   no
+# 13 -> 18   increase
+# ...
+#
+# Expected:
+# Increases: 5
+#
+# Hint:
+# Start looping from index 1:
+#
+# for i in range(1, len(values)):
+#
+# Compare:
+# values[i]
+# values[i - 1]
+
+# Write your code below:
+
+increases = decreases = 0
+for i in range(1, len(values)):
+    if values[i] > values[i - 1]:
+        increases += 1
+        print(values[i-1], '->', values[i], 'increase')
+    elif values[i] == values[i-1]:
+        print(values[i-1], '=', values[i], 'equal')
+    else:
+        decreases += 1
+        print(values[i-1], '->', values[i], 'no')
+
+# ============================================================
 print('EXTRA Task 24 — Multiplication table')
 # ============================================================
 print('='*30)
