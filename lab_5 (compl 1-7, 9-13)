@@ -1,0 +1,231 @@
+print('============================================================')
+print('Task 1 — Positional and keyword arguments')
+print('============================================================')
+
+def describe_students(name, age, city):
+    print(f"name: {name}")
+    print(f"age: {age}")
+    print(f"city: {city}")
+
+
+describe_students("Nadi", "37", "Novosibirsk")
+print('.'*15)
+describe_students(city='Moscow', age='90', name='Nata')
+print('.'*15)
+describe_students('Kira', city='Novgorod', age='67')
+
+
+print('============================================================')
+print('Task 2 — Default arguments')
+print('============================================================')
+
+def shopping_cost(weight, rate=2.5):
+    print(weight * rate)
+
+shopping_cost(5)
+shopping_cost(5, rate=2)
+shopping_cost(rate=6, weight=1)
+
+print('============================================================')
+print('Task 3 — Early return')
+print('============================================================')
+
+def safe_devided(a, b):
+    if b == 0:
+        print(None)
+    else:
+        print(a / b)
+
+safe_devided(a=4, b=0)
+safe_devided(10, 5)
+
+print('============================================================')
+print('Task 4 — *args: total score')
+print('============================================================')
+
+def total_score(*scores):
+    total = 0
+    for i in scores:
+        total += i
+    print(total)
+
+total_score(20, 30, 40)
+total_score(0)
+total_score(5)
+
+print('============================================================')
+print('Task 5 — *args: average score')
+print('============================================================')
+
+def average_score(*scores):
+    total = sum = 0
+    for i in scores:
+        total += 1
+        sum += i
+    if total == 0:
+        print(None)
+    else:
+        print(sum/total)
+
+average_score(6, 4, 8, 2)
+average_score()
+
+
+print('============================================================')
+print('Task 6 — **kwargs: profile')
+print('============================================================')
+
+def show_profile(**ditails):
+    for key, value in ditails.items():
+        print(f"{key}: {value}")
+
+show_profile(name='Nadi', city='New-York', year='1')
+print('.'*15)
+show_profile(city='Tomsk', name='Igor', year='3')
+print('.'*15)
+
+print('============================================================')
+print('Task 7 — Combining fixed arguments, *args, and **kwargs')
+print('============================================================')
+
+def course_report(student, *scores, **options):
+    print("student:", student)
+    print("scores:", scores)
+    print("options:", options)
+
+course_report("Mira", 80, 92, 75, rounded = True, scale = 100)
+
+
+
+
+print('============================================================')
+print('Task 9 — Recursive countdown')
+# ============================================================
+def countdown(n):
+    if n == 0:
+        print('go!')
+    else:
+        print(n)
+        countdown(n-1)
+countdown(3)
+print('.'*15)
+countdown(15)
+
+print('============================================================')
+print('Task 10 — Recursive factorial')
+print('============================================================')
+def factorial(n):
+    if n == 0:
+        return(1)
+    elif n < 0:
+        return(None)
+    else:
+        return(n * factorial(n-1))
+print(factorial(5))
+print(factorial(0))
+print(factorial(-4))
+
+print('============================================================')
+print('Task 11 — Recursive sum')
+print('============================================================')
+
+def sum_to(n):
+    if n == 0:
+        return(0)
+    elif n < 0:
+        return(None)
+    else:
+        return(n + sum_to(n-1))
+print(sum_to(4))
+print(sum_to(0))
+print(sum_to(-4))
+
+print('============================================================')
+print('Task 12 — math module and list methods')
+print('============================================================')
+# Part A — math
+#
+# Import math.
+#
+# Ask the user for the radius of a circle.
+# Calculate and print:
+# - circumference = 2 * math.pi * radius
+# - area = math.pi * radius ** 2
+# - area rounded UP with math.ceil()
+# - area rounded DOWN with math.floor()
+#
+# Example for radius 3:
+# Circumference: 18.849...
+# Area: 28.274...
+# Area ceil: 29
+# Area floor: 28
+
+from math import pi, ceil, floor
+
+#radius = float(input('enter radius: '))
+radius = 5
+circumf = 2 * pi * radius
+area = pi * radius ** 2
+
+print(f"Circumference: {circumf:.2f}", f"area: {area:.2f}", f"area ceil: {ceil(area):.2f}", f"area floor: {floor(area):.2f}", sep='\n')
+
+# Part B — list methods
+#
+# Start with:
+# numbers = [10, 20, 20, 30]
+#
+# Perform these operations in order:
+# 1. append 40
+# 2. extend with [50, 60]
+# 3. insert 15 at index 1
+# 4. print how many times 20 appears
+# 5. print the index of the first 30
+# 6. remove the first 20
+# 7. pop the last item and save it in removed
+# 8. print numbers
+# 9. print removed
+# Do not use sorted() in this task.
+# Write your code below:
+
+print('.'*15)
+
+numbers=[10, 20, 20, 30]
+
+numbers.append(40)
+print(numbers)
+
+numbers.extend([50, 60])
+print('extend 50, 60: ', numbers)
+
+numbers.insert(1, 15)
+print('insert 15: ', numbers)
+
+count_20 = numbers.count(20)
+
+print('count of 20:', count_20)
+
+last = numbers.pop()
+print('last: ', last)
+
+print('index of a 30: ', numbers.index(30))
+
+
+print('============================================================')
+print('Task 13 — BONUS: Recursive digit sum')
+print('============================================================')
+
+
+# Write your code below:
+
+def digit_sum(n):
+    if n >= 10:
+        return(n%10 + digit_sum(n//10))
+    elif n < 10:
+        return(n)
+    elif n < 0:
+        return(None)
+
+print(digit_sum(0))
+
+
+
