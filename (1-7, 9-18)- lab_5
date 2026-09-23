@@ -228,4 +228,85 @@ def digit_sum(n):
 print(digit_sum(0))
 
 
+print('============================================================')
+print('Task 14 — BONUS: Student result summary')
+print('============================================================')
+
+def result_summary(name, *scores, passing=60):
+    sum = total = passes = 0
+    if scores == 0:
+        print('no scores')
+    else:
+        for i in scores:
+            sum += i
+            total += 1
+            if i >= passing:
+                passes += 1
+    return(f"{name}: average = {sum/total}, passed = {passes}/{total}")
+print(result_summary("Anna", 80, 50, 70, 120, passing=60))
+
+
+print('============================================================')
+print('Task 15 — Function with validation')
+print('============================================================')
+def calculate_discount(price, discount=10):
+    final_price = 0
+    if price > 0 and (discount >= 0 and discount <= 100):
+        final_price = price - price * discount / 100
+        print(final_price)
+    else:
+        print(None)
+
+calculate_discount(100)
+calculate_discount(200, 25)
+calculate_discount(100, 120)
+calculate_discount(-20, 10)
+
+print('============================================================')
+print('Task 16 — Minimum and maximum with *args')
+print('============================================================')
+def score_range(*scores):
+    max = min = 0
+    if scores:
+        max = min = scores[0]
+        for i in scores:
+            if i > max:
+                max = i
+            if i < min:
+                min = i
+        print(max-min)
+    else:
+        print(None)
+
+score_range(10, 30, 60)
+score_range(5)
+score_range()
+
+print('============================================================')
+print('Task 17 — Count values above a limit')
+print('============================================================')
+
+def count_above(limit, *numbers):
+    total = 0
+    for i in numbers:
+        if i > limit:
+            total += 1
+    print(total)
+
+count_above(10, 5, 12, 30, 7, 20)
+count_above(100, 10, 20, 30)
+count_above(5)
+
+
+print('============================================================')
+print('Task 18 — **kwargs: configuration')
+print('============================================================')
+
+def show_settings(**settings):
+    if settings:
+        for key, value in settings.items():
+            print(f"{key} - {value}")
+    else:
+        print('no settings')
+show_settings(language="Python", version=3.12, debug=True)
 
