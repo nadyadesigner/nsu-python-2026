@@ -751,4 +751,17 @@ for row in range(1,6):
         print(row*column, end=' ')
     print()
 
+# ============================================================
+# EXTRA Task 25 — Second largest value
+# ============================================================
 
+numbers = [14, 7, 19, 3, 19, 8, 12]
+largest = second_largest = 0
+
+for i in numbers:
+    if i > largest:
+        second_largest = largest
+        largest = i
+    elif largest != i and second_largest < i:
+        second_largest = i
+print(second_largest, largest)
