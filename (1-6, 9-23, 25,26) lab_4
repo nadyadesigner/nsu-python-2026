@@ -535,18 +535,6 @@ print('Task 19 — Count positive values')
 print('============================================================')
 numbers = [5, -2, 0, 8, -4, 11, 0, -1, 7]
 
-# Use a loop to count how many values are:
-#
-#   positive
-#   negative
-#   zero
-# Print:
-# Positive: ...
-# Negative: ...
-# Zero: ...
-# Do not use list comprehensions.
-# Write your code below:
-
 positives = negatives = zeros = 0
 for i in numbers:
     if i > 0:
@@ -557,7 +545,17 @@ for i in numbers:
         zeros += 1
 print(f"{positives} positive numbers", f"{negatives} negative numbers", f"{zeros} zero numbers", sep='\n')
 
+print('============================================================')
+print('Task 20 — Number of digits')
+print('============================================================')
 
+n = int(input('enter your number (to count number of digits): '))
+j = 0
+while n != 0:
+    digit = n % 10
+    j += 1
+    n //= 10
+print(j)
 
 print('============================================================')
 print('Task 21 — Function: absolute_value')
@@ -613,7 +611,17 @@ def largest_of_three(number1, number2, number3):
 
 print(largest_of_three(10, -5, 0), largest_of_three(4, 9, 2), largest_of_three(10, 3, 10), largest_of_three(-1, -5, -3), sep='\n')
 
-
+print('============================================================')
+print('Task 23 — Find a value and its position')
+print('============================================================')
+numbers = [12, 7, 19, 4, 7, 25]
+num = int(input('enter a number to search: '))
+j = 0
+for i in numbers:
+    j += 1
+    if i == num:
+        break
+print(j)
 
 print('============================================================')
 print('Task 25 — Function: count_even')
