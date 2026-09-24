@@ -765,3 +765,73 @@ for i in numbers:
     elif largest != i and second_largest < i:
         second_largest = i
 print(second_largest, largest)
+
+# ============================================================
+print('EXTRA Task 23 — Prime number check')
+# ============================================================
+number = int(input('enter number greater than 1: '))
+flag = True
+for i in range(2,number):
+    if number % i == 0:
+        flag = False
+if flag:
+    print('prime')
+else:
+    print('not prime')
+
+# ============================================================
+print('EXTRA Task 25 — Second largest value')
+# ============================================================
+
+numbers = [14, 7, 19, 3, 19, 8, 12]
+largest = second_largest = 0
+for i in numbers:
+    if i > largest:
+        second_largest = largest
+        largest = i
+    elif largest != i and second_largest < i:
+        second_largest = i
+print(second_largest, largest)
+
+# ============================================================
+print('EXTRA Task 26 — Count consecutive positives')
+# ============================================================
+numbers = [2, 5, 7, 5, 6, 9, -1, 3, 4, 8, 9, -2, 6]
+current_count = longest_count = 0
+for i in numbers:
+    if i > 0:
+        current_count += 1
+    else:
+        if longest_count < current_count:
+            longest_count = current_count
+        current_count = 0
+print(f"longest count: {longest_count}")
+
+# ============================================================
+print('EXTRA Task 27 — Number frequency')
+# ============================================================
+numbers = [1, 4, 2, 7, 4, 8, 4, 2, 9, 4, 1]
+counts = 0
+count = int(input('enter a number: '))
+for i in numbers:
+    if i == count:
+        counts += 1
+print(counts)
+
+# ============================================================
+print('EXTRA Task 28 — Simple password checker')
+# ============================================================
+password = input("Enter password to check it: ")
+digits = "0123456789"
+uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+letter = digit = j = 0
+for i in password:
+    if i in digits:
+        digit += 1
+    if i in uppercase:
+        letter += 1
+    j += 1
+if j >= 8 and digit >= 1 and letter >= 1:
+    print('valid')
+else:
+    print('invalid')
