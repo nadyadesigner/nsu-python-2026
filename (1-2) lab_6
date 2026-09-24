@@ -1,0 +1,68 @@
+# ============================================================
+print('Task 1 — Functions as values')
+# ============================================================
+# Create a function:
+#   square(number)
+# that returns number ** 2.
+# Then:
+# 1. assign the function object to a new variable called operation;
+# 2. call square(5);
+# 3. call operation(5);
+# 4. print whether operation is square.
+# Expected final comparison:
+# True
+# Important:
+# operation = square
+# stores the function object.
+# operation = square()
+# would call the function immediately.
+# Write your code below:
+
+def square(number):
+    return(number ** 2)
+
+print(square(5))
+operation = square
+print(operation(5))
+print(operation is square)
+
+
+# ============================================================
+print('Task 2 — Passing a function as an argument')
+# ============================================================
+# Create:
+#
+#   double(number)
+#   triple(number)
+#
+# Then create:
+#
+#   apply(operation, value)
+#
+# apply() should call operation(value) and return the result.
+#
+# Examples:
+# apply(double, 5) -> 10
+# apply(triple, 5) -> 15
+#
+# Pass the function names WITHOUT parentheses.
+
+# Write your code below:
+
+def double(number):
+    return(number * 2)
+def triple(number):
+    return(number * 3)
+
+print(double(3))
+print(triple(3))
+
+
+def apply(operation, value):
+    if operation == double:
+        return(double(value))
+    elif operation == triple:
+        return(triple(value))
+
+print(apply(double, 5))
+print(apply(triple, 5))
