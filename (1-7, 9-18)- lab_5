@@ -310,3 +310,72 @@ def show_settings(**settings):
         print('no settings')
 show_settings(language="Python", version=3.12, debug=True)
 
+print('============================================================')
+print('Task 19 — math: distance between two points')
+print('============================================================')
+
+from math import sqrt
+def distance(x1, y1, x2, y2):
+    distance = sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+    return(distance)
+
+print(distance(0, 0, 3, 4))
+
+print('============================================================')
+print('Task 20 — List operations: shopping list')
+print('============================================================')
+
+shopping = ["bread", "milk", "eggs"]
+shopping.append('rice')
+print(shopping)
+shopping.insert(1, 'coffee')
+print(shopping)
+shopping.extend(['tea', 'sugar'])
+print(shopping)
+shopping.remove('milk')
+print(shopping)
+print(shopping.index('eggs'))
+print(shopping.count('bread'))
+removed_items =shopping.pop(-1)
+print(shopping)
+print(removed_items)
+
+
+print('============================================================')
+print('Task 21 — CHALLENGE: Recursive power')
+print('============================================================')
+
+def power(base, exponent):
+    if exponent == 0:
+        return(1)
+    else:
+        return(base * power(base, exponent-1))
+
+print(power(3, 3))
+print(power(2, 5))
+print(power(10, 0))
+
+print('============================================================')
+print('Task 22 — CHALLENGE: Recursive digit counter')
+print('============================================================')
+
+def count_digits(n):
+    if n < 10:
+        return 1
+    else:
+        return(1 + count_digits(n//10))
+
+print(count_digits(134567))
+
+print('============================================================')
+print('Task 23 — CHALLENGE: Recursive list sum')
+print('============================================================')
+
+def recursive_sum(numbers):
+    if numbers == []:
+        return 0
+    else:
+        return(numbers[0] + recursive_sum(numbers[1:]))
+print(recursive_sum([10, 20]))
+
+
