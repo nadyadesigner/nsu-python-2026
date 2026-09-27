@@ -1,0 +1,195 @@
+# ============================================================
+print('Task 1 — Functions as values')
+# ============================================================
+# Create a function:
+#   square(number)
+# that returns number ** 2.
+# Then:
+# 1. assign the function object to a new variable called operation;
+# 2. call square(5);
+# 3. call operation(5);
+# 4. print whether operation is square.
+# Expected final comparison:
+# True
+# Important:
+# operation = square
+# stores the function object.
+# operation = square()
+# would call the function immediately.
+# Write your code below:
+
+def square(number):
+    return(number ** 2)
+
+print(square(5))
+operation = square
+print(operation(5))
+print(operation is square)
+
+
+# ============================================================
+print('Task 2 — Passing a function as an argument')
+# ============================================================
+# Create:
+#
+#   double(number)
+#   triple(number)
+#
+# Then create:
+#
+#   apply(operation, value)
+#
+# apply() should call operation(value) and return the result.
+#
+# Examples:
+# apply(double, 5) -> 10
+# apply(triple, 5) -> 15
+#
+# Pass the function names WITHOUT parentheses.
+
+# Write your code below:
+
+def double(number):
+    return(number * 2)
+def triple(number):
+    return(number * 3)
+
+print(double(3))
+print(triple(3))
+
+
+def apply(operation, value):
+    if operation == double:
+        return(double(value))
+    elif operation == triple:
+        return(triple(value))
+
+print(apply(double, 5))
+print(apply(triple, 5))
+
+
+
+# ============================================================
+print('Task 3 — Higher-order function')
+# ============================================================
+
+def square(numbers):
+    return(numbers*numbers)
+def transform(values, operation):
+    result=[]
+    for i in values:
+        result.append(operation(i))
+    return result
+
+values = [1,2,3]
+print(transform(values, square))
+
+# ============================================================
+print('Task 4 — Lambda expressions')
+# ============================================================
+
+double = lambda x: x*2
+print(double(5))
+add = lambda x, y: x+y
+print(add(3,4))
+is_even = lambda x: x%2 == 0
+print(is_even(10))
+print(is_even(3))
+
+print('============================================================')
+print('Task 5 — sorted() versus list.sort()')
+print('============================================================')
+
+numbers = [8, 3, 10, 1, 6]
+numbers_1 = [2,5,0,4,10]
+
+ordered = sorted(numbers)
+print(numbers, ordered)
+
+result = numbers_1.sort()
+print(numbers_1, result) # list.sort() returns None; it changes numbers_1
+
+
+print('============================================================')
+print('Task 6 — Descending order')
+print('============================================================')
+
+scores = [82, 95, 73, 88, 61]
+high_to_low = sorted(scores, reverse=True)
+print(high_to_low, scores)
+
+
+print('============================================================')
+print('Task 7 — Sorting with key')
+print('============================================================')
+
+words = ["pear", "watermelon", "fig", "banana", "kiwi"]
+shortest_first = sorted(words, key=len, reverse=False)
+print(shortest_first)
+longest_first = sorted(words, key=len, reverse=True)
+print(longest_first)
+
+print('============================================================')
+print('Task 8 — Case-insensitive sorting')
+print('============================================================')
+
+cities = ["berlin", "Algiers", "cairo", "Amsterdam","zurbagan"] #https://youtu.be/4xxqHk-QLIA?si=vy1KWIaKa2q_6Kdq
+ordered_cities = sorted(cities, key=str.lower)
+print(ordered_cities, cities)
+
+print('============================================================')
+print('Task 9 — Sorting tuples with lambda')
+print('============================================================')
+
+students = [("Anna", 82), ("Boris", 95), ("Mira", 88), ("Daniel", 73)]
+sorted_students = sorted(students, key= lambda x: x[1], reverse=True) #https://youtu.be/gfnulpA55dI?si=O7QnRnO65xituwSd
+print(sorted_students)
+
+print('============================================================')
+print('Task 10 — Filtering values')
+print('============================================================')
+
+scores = [45, 70, 82, 39, 91, 60, 58]
+print(list(filter(lambda x: x>= 60, scores)))
+
+
+print('============================================================')
+print('Task 11 — Transforming values with map()')
+print('============================================================')
+
+prices = [100, 250, 80, 40]
+print(list(map(lambda x: round(x*1.1, 2), prices)))
+
+
+print('============================================================')
+print('Task 12 — Filter, sort, and map together')
+print('============================================================')
+
+students = [{"name": "Anna", "score": 82},
+            {"name": "Boris", "score": 55},
+            {"name": "Mira", "score": 91},
+            {"name": "Daniel", "score": 67},
+            {"name": "Sara", "score": 48}
+            ]
+passed = list(filter(lambda x: x["score"] >= 60, students))
+print(passed)
+in_order = sorted(passed, key= lambda x: x["score"], reverse=True)
+print(in_order)
+names = list(map(lambda x: x["name"], in_order))
+print(names)
+
+
+print('============================================================')
+print('Task 13 — BONUS: Sort records by multiple ideas')
+print('============================================================')
+
+products = [
+    {"name": "Keyboard", "price": 70},
+    {"name": "Mouse", "price": 25},
+    {"name": "Monitor", "price": 220},
+    {"name": "USB Cable", "price": 10}
+]
+by_price = sorted(products, key = lambda x: x["price"], reverse=False)
+print(by_price)
+by_name_lenght = sorted(products, key= lambda x: len(x["name"]))
+print(by_name_lenght)
