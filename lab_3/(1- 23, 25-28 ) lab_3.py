@@ -835,3 +835,87 @@ if j >= 8 and digit >= 1 and letter >= 1:
     print('valid')
 else:
     print('invalid')
+
+# ============================================================
+print('EXTRA Task 29 — Local maximum')
+# ============================================================
+values = [3, 7, 4, 8, 5, 9, 2, 6, 1]
+
+# A value is a local maximum if it is greater than
+# both the value before it and the value after it.
+# Example:
+# 3, 7, 4
+# 7 is a local maximum.
+# Find and print all local maxima.
+# Do not check the first or last element.
+# Expected:
+# 7
+# 8
+# 9
+# 6
+# Hint:
+# Use indexes:
+# values[i - 1]
+# values[i]
+# values[i + 1]
+# Write your code below:
+
+
+# ============================================================
+print('EXTRA Task 30 — Pair with target sum')
+# ============================================================
+
+# Find two DIFFERENT elements whose sum is equal to target.
+# Expected:
+# 7 + 3 = 10
+# Required:
+# Use nested for loops.
+# Stop when the first valid pair is found.
+# Do NOT use:
+#   set()
+# Hint:
+# for i in range(...):
+#     for j in range(...):
+# Write your code below:
+
+numbers = [2, 4, 7, 11, 15, 3]
+target = 10
+for i in numbers:
+    for j in numbers:
+        if i+j == target:
+            print(i, j)
+
+
+# ============================================================
+print('EXTRA Task 31 — Grade distribution')
+# ============================================================
+scores = [95, 82, 67, 73, 58, 91, 49, 88, 76, 100, 61]
+
+# Count how many students received:
+# A    -> 90–100
+# B    -> 75–89
+# C    -> 60–74
+# Fail -> below 60
+# Print:
+# A: ...
+# B: ...
+# C: ...
+# Fail: ...
+# Then determine which category contains the most students.
+# Example:
+# Most common: B
+# Write your code below:
+
+a_s = bs = cs = fails = 0
+for i in scores:
+    if i < 60:
+        fails += 1
+    elif 60 <= i <= 74:
+        cs += 1
+    elif 75 < i < 89:
+        bs += 1
+    elif 90 <= i <= 100:
+        a_s += 1
+
+print('A:', a_s, '   B:',bs, '     C:', cs, '    Fail:', fails)
+
