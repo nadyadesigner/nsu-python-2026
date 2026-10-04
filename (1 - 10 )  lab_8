@@ -1,0 +1,189 @@
+lab 8 there 
+from pathlib import Path
+
+LAB_DIR = Path(__file__).resolve().parent
+DATA = LAB_DIR / "data"
+OUTPUT = LAB_DIR / "output"
+
+# ============================================================
+print('Task 1 — Read a whole file')
+# ============================================================
+# Read data/note.txt with UTF-8 using with and read(). Print the content,
+# then print the number of characters. Resolve paths relative to this
+# script.
+# Write your code below:
+
+#folder = Path(__file__).resolve().parent
+#with open(folder / "test" /"test_1.txt", "r", encoding="utf-8") as file:
+#    print(file.read())
+folder = Path(__file__).resolve().parent
+with open(folder / "test" / "note.txt", "r", encoding="utf-8") as file:
+    content = file.read()
+print(content)
+print('number of characters: ', len(content))
+
+
+print('')
+# ============================================================
+print('Task 2 — Read two lines')
+# ============================================================
+# Open data/note.txt and call readline() twice. Print repr() of each line
+# so the newline character is visible.
+# Write your code below:
+
+folder = Path(__file__).resolve().parent
+with open(folder/"test"/"note.txt", "r", encoding="utf-8") as file:
+    for line in file:
+        print(repr(line))
+#    line_1 = file.readline()
+#    line_2 = file.readline()
+#    line_3 = file.readline()
+#    print(repr(line_1), repr(line_2), repr(line_3))
+
+print('')
+# ============================================================
+print('Task 3 — Read lines into a list')
+# ============================================================
+# Use readlines() on data/names.txt. Print the number of lines and the
+# last name without a trailing newline.
+
+# Write your code below:
+
+folder = Path(__file__).resolve().parent
+with open(folder/"test"/"names.txt", "r", encoding = "utf-8") as file:
+    result = []
+    for line in file:
+        if line.strip():
+            line = line.strip()
+            result.append(line)
+print(result)
+
+# ============================================================
+print('Task 4 — Count nonblank lines')
+# ============================================================
+# Iterate over data/names.txt and count lines whose strip() result is
+# nonempty. Print the count. Do not use read() or readlines() for this
+# task.
+# Write your code below:
+
+folder = Path(__file__).resolve().parent
+with open(folder/"test"/"names.txt", "r", encoding="utf-8") as file:
+    i = 0
+    for line in file:
+        if line.strip(): #heck if line is not empty - remove spaces
+            i += 1
+print(i)
+
+
+# ============================================================
+print('Task 5 — Write a report')
+# ============================================================
+# Create output/name_report.txt in w mode. Read data/names.txt, count
+# nonblank names, and write exactly "Names: N" followed by a newline. The
+# output directory already exists.
+# Write your code below:
+
+folder = Path(__file__).resolve().parent
+with open(folder/"test"/"names.txt", "r", encoding="utf-8") as file:
+    i=0
+    for line in file:
+        if line.strip():
+            i += 1
+with open(folder/"test"/"name_report.txt", "a", encoding="utf-8") as file:
+    file.write(f'Names: {i}\n')
+    print("ready")
+
+
+print('')
+# ============================================================
+print('Task 6 — Append a log entry')
+# ============================================================
+# Append "Lab 08 completed" and a newline to output/activity.log. Running
+# this task twice should create two entries. Open with a mode.
+# Write your code below:
+folder = Path(__file__).resolve().parent
+try:
+    with open(folder/"test"/"activity.log.txt", "x", encoding="utf-8") as file:
+        file.write("Lab 08 completed\n")
+        print("ready")
+except FileExistsError:
+    with open(folder/"test"/"activity.log.txt", "a", encoding="utf-8") as file:
+        file.write("Lab 08 completed\n")
+        print("written")
+
+
+print('')
+# ============================================================
+print('Task 7 — Create without overwriting')
+# ============================================================
+# Create output/first_run.txt with x mode and write "First run". Catch
+# FileExistsError and print a clear message on later runs.
+# Write your code below:
+
+try:
+    with open(folder/"test"/"first_run.txt", "x", encoding="utf-8") as file:
+        file.write('the first run')
+        print('success')
+except FileExistsError:
+    print('File already exists')
+
+
+
+print('')
+# ============================================================
+print('Task 8 — Handle a missing file')
+# ============================================================
+# Try to read data/missing.txt. Catch FileNotFoundError and print "Input
+# file not found". Do not create the missing file.
+# Write your code below:
+
+try:
+    with open(folder/"test"/"missing.txt", "r", encoding="utf-8") as file:
+        file.read()
+        print('success')
+except FileNotFoundError:
+    print('input file not found')
+
+
+print('')
+# ============================================================
+print('Task 9 — Filter names to a new file')
+# ============================================================
+# Read data/names.txt one line at a time. Write nonblank names that begin
+# with A or a into output/a_names.txt, one name per line. Strip extra
+# spaces.
+# Write your code below:
+import re
+with open(folder/"test"/"names.txt", "r", encoding="utf-8") as file:
+    result=[]
+    for line in file:
+        line = line.strip()
+        if re.match(r"[Aa]", line):
+            result.append(line)
+print(result)
+#if re.match(r"[Aa]", line):
+
+print('')
+# ============================================================
+print('Task 10 — Average from a file')
+# ============================================================
+# data/scores.txt contains one integer per nonblank line. Calculate the
+# average and write "Average: 83.0" (one decimal place) into
+# output/average.txt. Handle an empty list of scores without dividing by
+# zero.
+# Write your code below:
+
+with open(folder/"test"/"scores.txt", "r", encoding="utf-8") as file:
+    i = k = 0
+    result=0
+    for line in file:
+        if line.strip():
+            line = int(line)
+            result += line
+
+with open(folder/"test"/"average.txt", "w", encoding="utf-8") as file:
+    if result != 0:
+        file.write(f'Average: {result}')
+    else:
+        file.write('devided by zero!')
+        print('devided by zero!')
