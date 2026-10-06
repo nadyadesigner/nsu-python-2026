@@ -187,3 +187,34 @@ with open(folder/"test"/"average.txt", "w", encoding="utf-8") as file:
     else:
         file.write('devided by zero!')
         print('devided by zero!')
+
+# ============================================================
+print('Task 11 — Read a simple table')
+# ============================================================
+# Each nonblank line of data/students.csv is name,score. Assume no header
+# and no commas inside names. Print only students with a score of at least
+# 80, with the score converted to int.
+# Write your code below:
+with open(folder/"test"/"students.csv", "r", encoding="utf-8") as file:
+    for line in file:
+        line = line.strip()
+        line = line.split(',')
+        print(line)
+        if int(line[1]) >= 80:
+            print('students with a score of at least 80: ', line[0], ', score: ', line[1] )
+
+
+
+# ============================================================
+print('Task 12 — Save a word count')
+# ============================================================
+# Read data/note.txt, use split() to count words, and write "Words: N"
+# with a newline to output/word_count.txt.
+# Write your code below:
+with open(folder/"test"/"note.txt", "r", encoding="utf-8") as file:
+    result = 0
+    for line in file:
+        line = line.strip()
+        line = line.split(' ')
+        result += len(line)
+print(result, 'words')
