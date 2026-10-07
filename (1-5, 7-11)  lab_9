@@ -316,3 +316,47 @@ for score in [80, -1, 100, 101]:
 
 
 print()
+
+
+# ============================================================
+print('Task 12 — Average and empty data')
+# ============================================================
+# Create StudentReport with name and scores instance attributes.
+# Implement add_score(score) with the validation from Task 11.
+# Add average(): return the average of scores. If the list is empty,
+# raise ValueError("No scores recorded").
+# Create Anna, add 80 and 90, and print her average: 85.0.
+# Create Omar without scores. Call average() inside try/except and print
+# the message: No scores recorded.
+# Do not return 0 for an empty list: 0 can be a real average.
+# Write your code below:
+
+class ValidatedStudent:
+    def __init__(self, name):
+        self.name = name
+        self.scores = []
+    def add_score(self, *scores):
+        for score in scores:
+            if 0 <= score <= 100:
+                 self.scores.append(score)
+            else:
+                raise ValueError("Score must be between 0 and 100")
+    def average(self):
+        if self.scores:
+            return sum(self.scores)/len(self.scores)
+        else:
+            raise ValueError
+
+
+first = ValidatedStudent('Ann')
+second = ValidatedStudent('Rustam')
+
+try:
+    first.add_score(80, 90)
+    second.add_score()
+    print(first.average())
+    print(second.average())
+except ValueError:
+    print('no scores recorded')
+finally:
+    print('end')
