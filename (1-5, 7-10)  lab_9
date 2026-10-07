@@ -238,6 +238,7 @@ class Student:
     def add_score(self, *scores):
         for score in scores:
             self.scores.append(score)
+        return scores
 
 first = Student('Anna')
 second = Student('Omar')
@@ -245,6 +246,36 @@ first.add_score(80, 90, 80)
 print(first.scores)
 print(second.scores)
 
+# ============================================================
+print('Task 10/1 — Independent Student objects')
+# ============================================================
+# Create Student with __init__(self, name).
+# Store self.name and create self.scores = [] INSIDE __init__.
+# Add add_score(score), which appends an integer score (assume valid input).
+# Create Anna and Omar. Add 80 and 90 to Anna only.
+# Print both scores lists. Expected:
+# [80, 90]
+# []
+# Do not define scores as a class attribute.
+# Write your code below:
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+        self.scores = []
+
+    def add_score(self, *scores):
+        for score in scores:
+            self.scores.append(score)
+        return scores
+
+first = Student('Anna')
+second = Student('Omar')
+for score in [80, 90, 80]:
+    first.add_score(score)
+
+print(first.scores)
+print(second.scores)
 
 print()
 # ============================================================
@@ -264,63 +295,24 @@ print('Task 11 — A Student class with validation')
 # Write your code below:
 
 class ValidatedStudent:
-    def __init__(self, name, scores):
+    def __init__(self, name):
         self.name = name
-        self.scores = scores
-    def add_score(self, *scores):
-        for score in scores:
-            if 0 <= score <= 100:
-                
+        self.scores = []
+    def add_score(self, score):
+        if 0 <= score <= 100:
+             self.scores.append(score)
+        else:
+            raise ValueError("Score must be between 0 and 100")
+
+first = ValidatedStudent('Ann')
+
+for score in [80, -1, 100, 101]:
+    try:
+        first.add_score(score)
+    except ValueError:
+        print(f"rejected: {score}")
+    else:
+        print(first.scores)
 
 
 print()
-# ============================================================
-print('Task 12 — Average and empty data')
-# ============================================================
-# Create StudentReport with name and scores instance attributes.
-# Implement add_score(score) with the validation from Task 11.
-# Add average(): return the average of scores. If the list is empty,
-# raise ValueError("No scores recorded").
-# Create Anna, add 80 and 90, and print her average: 85.0.
-# Create Omar without scores. Call average() inside try/except and print
-# the message: No scores recorded.
-# Do not return 0 for an empty list: 0 can be a real average.
-
-# Write your code below:
-
-print()
-# ============================================================
-print('Task 13 — BONUS: Skip invalid file records')
-# ============================================================
-# Read data/mixed_scores.txt one line at a time using with.
-# Skip blank lines. Convert each nonblank line to int and validate it
-# with validate_score() from Task 4. Catch ValueError INSIDE the loop.
-# Print "Rejected: TEXT" for invalid text or out-of-range integers.
-# Append accepted scores to a list. Print the list and its average.
-# Expected rejected values (in order): bad, 105, -2.
-# Expected accepted list: [80, 100, 60]. Expected average: 80.0.
-# Also handle FileNotFoundError around opening/reading the file.
-
-# Write your code below:
-
-print()
-# ============================================================
-print('Task 14 — BONUS: Objects from a text file')
-# ============================================================
-# Use StudentReport from Task 12. Read data/student_scores.txt.
-# Each nonblank line is NAME,SCORE, with exactly one comma and a nonempty
-# name. These formatting rules are guaranteed for the supplied file.
-# Split the line, strip both fields, convert SCORE to int, and call
-# add_score(). Keep one StudentReport per name in a dictionary.
-# Skip invalid scores, printing "Rejected: NAME,SCORE". Create an object
-# only after conversion and validation succeed.
-# Finally print each student's average to one decimal place in first
-# accepted appearance order. Expected:
-# Rejected: Anna,bad
-# Rejected: Omar,101
-# Anna: 85.0
-# Omar: 70.0
-# Use only dictionaries, loops, functions, classes, and exceptions.
-# Handle FileNotFoundError. Do not use inheritance or external packages.
-
-# Write your code below:
