@@ -144,9 +144,18 @@ print('Task 6 — Retry until input is valid')
 # Only 7 should be accepted.
 # Write your code below:
 
-
-
-print()
+while True:
+    try:
+        number = int(input('enter a number: '))
+    except ValueError:
+        print('enter a whole number')
+        continue
+    else:
+        if number <= 0:
+            print('enter a positive number')
+        else:
+            print('accepted: ', number)
+            break
 
 # ============================================================
 print('Task 7 — A Book class')
