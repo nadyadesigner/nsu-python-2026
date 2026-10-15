@@ -1,0 +1,267 @@
+# ============================================================
+print('Task 1 — Instance and class attributes')
+# ============================================================
+# Create Student with class attribute university = "NSU".
+# __init__(name) must store name as an instance attribute.
+# Create Anna and Omar. Print each name and university.
+# Then set Student.university = "NSU Updated" and print both universities.
+# Expected universities after the change: NSU Updated, NSU Updated.
+# Do not assign self.university inside __init__.
+# Write your code below:
+
+class Student:
+    university = 'NSU'
+    def __init__(self, name):
+        self.name = name
+
+first_student = Student("Anna")
+second_student = Student("Omar")
+
+print(first_student.name, first_student.university)
+print(second_student.name, second_student.university)
+
+#second_student.university = "NSU updated"
+#print(first_student.name, first_student.university)
+#print(second_student.name, second_student.university)
+
+Student.university = "NSU UPDATED"
+print(first_student.name, first_student.university)
+print(second_student.name, second_student.university)
+
+
+# ============================================================
+print('Task 2 — Shadow a class attribute')
+# ============================================================
+# Create Device with class attribute category = "General" and an instance
+# attribute name set in __init__. Create a = Device("Laptop") and
+# b = Device("Printer"). Set a.category = "Personal" and then
+# Device.category = "Shared".
+# Print a.category, b.category, and Device.category on separate lines.
+# Expected: Personal, Shared, Shared.
+# Add a comment explaining why a differs from b.
+# Write your code below:
+
+class Device:
+    category = "General"
+    def __init__(self, set):
+        self.set = set  #atributes
+
+first_device = Device("Laptop")  #object / instance
+second_device = Device('Printer')
+
+print(first_device.category)
+first_device.category = "Personal"
+second_device.category = "Shared"
+
+print(first_device.category, second_device.category, Device.category, sep='\n')
+
+Device.category = "Shared updated"
+print(Device.category)
+
+# ============================================================
+print('Task 3 — Fix shared mutable state')
+# ============================================================
+# The following design accidentally shares one list:
+# class Team:
+#     members = []
+#     def __init__(self, name):
+#         self.name = name
+#     def add_member(self, name):
+#         self.members.append(name)
+# Fix Team so each instance has its own members list.
+# Create Alpha and Beta. Add Anna to Alpha only.
+# Print both lists and whether they are the same object.
+# Expected: ['Anna'], [], False (one result per line).
+# Write your code below:
+
+class Team:
+    #members = []
+    def __init__(self):
+        self.members = []
+        #self.name = name #atributes
+    def add_member(self, name): #method
+        self.members.append(name)
+
+#team_1 = Team('Riverdale')
+#team_2 = Team('Rivervale')
+
+#team_1.add_member('Archie')
+
+team_1 = Team()
+team_2 = Team()
+team_1.add_member('Archie')
+#team_2.add_member('Betty')
+
+print(team_1.members, team_2.members, team_1.members is team_2.members, sep='\n')
+
+
+
+# ============================================================
+print('Task 4 — Encapsulation and validation')
+# ============================================================
+# Create PositiveCounter with self._value = 0 in __init__.
+# add(amount) accepts a positive integer and increases _value.
+# Reject zero and negative integers with ValueError("Amount must be positive")
+# before changing state. get_value() returns the current value.
+# Assume arguments are integers. Use only these public methods in the demo.
+# Add 3 and 2, then attempt to add 0 inside try/except.
+# Print the value before and after the rejected update: both must be 5.
+# Add a comment: the leading underscore is a convention, not enforced privacy.
+# Write your code below:
+
+class PositiveCounter:
+    def __init__(self):
+        self._value = 0
+    def add(self, amount):
+        if amount <= 0:
+            raise ValueError('amount must be positive')
+        self._value += amount
+    def get_value(self):
+        return self._value
+
+unit = PositiveCounter()
+
+for value in [3, 2, 0]:
+    try:
+        unit.add(value)
+    except ValueError:
+        print('error')
+    print(unit.get_value())
+
+
+# ============================================================
+print('Task 5 — Return a copy of internal data')
+# ============================================================
+# Create ScoreBook with self._scores = [] inside __init__.
+# add_score(score) accepts integer scores from 0 to 100 inclusive.
+# Otherwise raise ValueError("Score must be between 0 and 100").
+# get_scores() must return a COPY of the internal list.
+# Add 80. Store snapshot = book.get_scores(), then append 100 to snapshot.
+# Print snapshot and book.get_scores(). Expected: [80, 100] and [80].
+# Create a second ScoreBook and verify its scores remain empty.
+
+# Write your code below:
+
+class ScoreBook:
+    def __init__(self):
+        self._scores = []
+    def add_score(self, score):
+        if 0 <= score <= 100:
+            self._scores.append(score)
+        else:
+            raise ValueError('score must be between 0 and 100')
+    def get_scores(self):
+        return self._scores.copy()
+
+book = ScoreBook()
+
+book.add_score(80)
+snapshot = book.get_scores()
+snapshot.append(100)
+
+print(snapshot, book.get_scores())
+
+# ============================================================
+print('Task 6 — Inherit a method')
+# ============================================================
+# Create Person with __init__(name) and describe(), returning
+# "Person: NAME". Create Visitor(Person) with an empty body using pass.
+# Create Visitor("Omar") and print its description: Person: Omar.
+# Also print isinstance(visitor, Visitor), isinstance(visitor, Person),
+# and issubclass(Visitor, Person). All three must be True.
+# Do not redefine __init__ or describe inside Visitor.
+# Write your code below:
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+    def describe(self):
+        return f"Person: {self.name}"
+
+class Visitor(Person):
+    pass
+
+visitor = Visitor("Omar")
+print(visitor.name, visitor.describe(), sep="\n")
+print(isinstance(visitor, Visitor), isinstance(visitor, Person))
+print(issubclass(Visitor, Person))
+
+
+
+# ============================================================
+print('Task 7 — Initialize a subclass with super')
+# ============================================================
+# Using Person from Task 6, create StudentPerson(Person).
+# __init__(name, program) must call super().__init__(name), then store program.
+# Create StudentPerson("Anna", "AI"). Print name, program, and describe().
+# Expected: Anna, AI, Person: Anna (one result per line).
+# Do not duplicate the assignment to self.name in the subclass.
+# Write your code below:
+
+class StudentPerson(Person):
+    def __init__(self, name, program):
+        super().__init__(name)
+        self.program = program
+
+student = StudentPerson('Anna', "AI")
+print(student.name, student.program, student.describe(), sep="\n")
+
+
+# ============================================================
+print('Task 8 — Override a method')
+# ============================================================
+# Using Person, create Teacher(Person). Its __init__(name, subject) calls
+# the parent initializer and stores subject.
+# Override describe() to return "Teacher: NAME, subject: SUBJECT".
+# Print Teacher("Mira", "Python").describe().
+# Expected: Teacher: Mira, subject: Python.
+# Then print Person("Omar").describe(): Person: Omar.
+# The Person implementation must remain unchanged.
+# Write your code below:
+
+class Teacher(Person):
+    def __init__(self, name, subject):
+        super().__init__(name)
+        self.subject = subject
+    def describe(self):
+        return f"Teacher: {self.name}, subject: {self.subject}"
+
+print(Teacher("Mira", "Python").describe())
+print(Person('Omar').describe())
+
+
+# ============================================================
+print('Task 9 — Extend an inherited method')
+# ============================================================
+# Create DetailedStudent(StudentPerson).
+# Inherit __init__ unchanged. Override describe() by calling
+# super().describe(), then appending ", program: PROGRAM".
+# For DetailedStudent("Anna", "AI"), the result must be:
+# Person: Anna, program: AI.
+# Return a string; do not print inside describe().
+# Write your code below:
+
+class DetailedStudent(StudentPerson):
+    def describe(self):
+        description = super().describe()
+        return description + f", program: {self.program}"
+student = DetailedStudent("Anna", "AI")
+print(student.describe())
+
+
+# ============================================================
+print('Task 10 — Polymorphic descriptions')
+# ============================================================
+# Create a list containing Person("Omar"), Teacher("Mira", "Python"),
+# and DetailedStudent("Anna", "AI") from Tasks 6–9.
+# Use ONE for loop to call describe() and print each result.
+# Expected:
+# Person: Omar
+# Teacher: Mira, subject: Python
+# Person: Anna, program: AI
+# Do not use type(), isinstance(), or if/elif to choose a description.
+# Write your code below:
+
+people = [Person("Omar"), Teacher("Mira", "Python"), DetailedStudent("Anna", "AI")]
+for person in people:
+    print(person.describe())
