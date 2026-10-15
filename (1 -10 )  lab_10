@@ -1,0 +1,212 @@
+#Tasks 1–14 are core practice. Tasks 15–16 are optional bonus tasks.
+#Complete at least 10 core tasks, including Tasks 10–14 and at least
+#five tasks from Tasks 1–9. All 14 core tasks are recommended.
+#Use only Lecture 12 and earlier concepts. Python 3.10+.
+#Run from this directory. Preserve the supplied CSV files.
+
+
+import numpy as np
+import pandas as pd
+
+print()
+
+# ========================================================================
+print('Task 1 — Create and inspect an array')
+# ========================================================================
+# Create np.array([12, 18, 24, 30], dtype=np.int64).
+# Print the array, shape, ndim, size, and dtype.
+# Expected metadata: (4,), 1, 4, int64.
+# Write your code below:
+
+array_1t = np.array([12, 18, 24, 30], dtype=np.int64)
+print(array_1t)
+print(array_1t.shape)#shape of the array_1
+print(array_1t.ndim)#the number of dimentions
+print(array_1t.size)# total number of elements in array
+print(array_1t.dtype)#data type
+
+print()
+
+# ========================================================================
+print('Task 2 — Array creation functions')
+# ========================================================================
+# Create a 2-by-3 array of zeros, an integer array of four ones,
+# and an array containing 2, 4, 6, 8 using np.arange().
+# Use np.linspace() to create five evenly spaced values from 0 to 1, inclusive.
+# Expected final values: [0.0, 0.25, 0.5, 0.75, 1.0].
+# Write your code below:
+
+array_0 = np.zeros((2, 3))
+print(array_0)
+array_1 = np.ones((4))
+print(array_1)
+array_int = np.arange(2,9,2)
+print(array_int)
+array_fl = np.linspace(0, 1, 5)
+print(array_fl)
+
+print()
+
+# ========================================================================
+print('Task 3 — Indexing and slicing')
+# ========================================================================
+# Given a = np.array([10, 20, 30, 40, 50, 60]),
+# print the first element, last element, elements at positions 1 through 3,
+# every second element starting at position 0, and the reversed array.
+# Expected: 10; 60; [20, 30, 40]; [10, 30, 50]; [60, 50, 40, 30, 20, 10].
+# Write your code below:
+
+a = np.array([10, 20, 30, 40, 50, 60])
+print(a[0])
+print(a[-1], a[1:4], a[::2], a[::-1], sep='\n')
+
+
+print()
+
+# ========================================================================
+print('Task 4 — Reshape and select from a table')
+# ========================================================================
+# Create np.arange(1, 13).reshape(3, 4).
+# Print its shape, second row, third column, and element at row 2, column 3.
+# Then print its transpose and the shape of the transpose.
+# Indices are zero-based. Expected element: 12. Transposed shape: (4, 3).
+# Write your code below:
+
+array_4 = np.arange(1,13)
+print('original: ', array_4)
+
+array_4 = array_4.reshape(3,4)
+print('reshaped: ', array_4, sep='\n')
+
+print('shape:', array_4.shape)
+print('second row: ', array_4[1,:])
+
+print('third colomn: ', array_4[:, 2])
+print('element at row 2, column 3: ', array_4[1,2])
+
+print('Transpose: ')
+print(array_4.T)
+print('shape of transpose: ', array_4.T.shape)
+print()
+
+# ========================================================================
+print('Task 5 — Views and independent copies')
+# ========================================================================
+# Create a = np.array([10, 20, 30, 40]).
+# Create view = a[1:3] and assign view[0] = 99. Print a.
+# Then create independent = a[1:3].copy(), assign independent[0] = -1,
+# and print a again. Both outputs must be [10, 99, 30, 40].
+# Explain the difference in a comment.
+# Write your code below:
+
+array_5 = np.array([10, 20, 30, 40])
+view = array_5[1:3]
+view[0] = 99
+print(array_5)
+independent = array_5[1:3].copy()
+independent[0] = -1
+print(array_5)
+
+print()
+
+# ========================================================================
+print('Task 6 — Vectorized calculations and broadcasting')
+# ========================================================================
+# Given a = np.array([2, 4, 6]), calculate a + 10, a * 3, and a ** 2
+# without Python loops.
+# Given m = np.array([[1, 2, 3], [4, 5, 6]]),
+# add np.array([10, 20, 30]) to every row using broadcasting.
+# Expected table: [[11, 22, 33], [14, 25, 36]].
+
+# Write your code below:
+
+array_6 = np.array([2, 4, 6])
+print('just array: ', array_6)
+print('addition: ', array_6 + 10)
+print('multiplicaion: ', array_6 * 3)
+array_m = np.array([[1, 2, 3], [4, 5, 6]])
+print('addition of array_6 and array_m: ', array_6 + array_m, sep='\n')
+# Broadcasting allows NumPy to add the one-dimensional array to each
+# row of the two-dimensional array. We don't need a loop
+
+print()
+
+# ========================================================================
+print('Task 7 — Boolean filtering')
+# ========================================================================
+# Given scores = np.array([35, 60, 75, 90, 100]),
+# select scores >= 60, then scores >= 60 and < 90.
+# Use Boolean masks, &, and parentheses. Do not use a Python loop.
+# Expected results: [60, 75, 90, 100] and [60, 75].
+
+# Write your code below:
+
+scores = np.array([35, 60, 75, 90, 100])
+mask_60 = scores >= 60
+print(scores[mask_60]) # mask selects elements that is appropriate to conditions
+mask_90 = (scores >= 60) & (scores < 90)
+print(scores[mask_90])
+print()
+
+print()
+
+# ========================================================================
+print('Task 8 — Aggregations by axis')
+# ========================================================================
+# Given scores = np.array([[70, 80], [90, 85], [50, 60]]),
+# calculate the mean per student, mean per assignment, overall mean,
+# and global minimum and maximum. Rows represent students.
+# Expected student means: [75.0, 87.5, 55.0].
+# Expected assignment means: [70.0, 75.0]. Overall mean: 72.5.
+# Minimum: 50. Maximum: 90.
+# Write your code below:
+
+scores_8 = np.array([[70, 80],
+                     [90, 85],
+                     [50, 60]]) #row - students, column - assignment
+
+print('mean per student: ', scores_8.mean(axis=1))
+print('mean per assignment: ', scores_8.mean(axis=0))
+print('overall mean: ', scores_8.mean())
+print('min: ', scores_8.min())
+print('max: ', scores_8.max())
+
+print()
+
+# ========================================================================
+print('Task 9 — Elementwise and matrix multiplication')
+# ========================================================================
+# Given A = np.array([[1, 2], [3, 4]]) and
+# B = np.array([[5, 6], [7, 8]]), calculate A * B and A @ B.
+# Expected elementwise result: [[5, 12], [21, 32]].
+# Expected matrix result: [[19, 22], [43, 50]].
+# Explain in a comment why these results differ.
+
+# Write your code below:
+
+a_9 = np.array([[1, 2], [3, 4]])
+b_9 = np.array([[5, 6], [7, 8]])
+
+print('multiplication: ', a_9 * b_9, sep='\n') # [1*5 2*6], ...
+print('matrix result: ', a_9 @ b_9, sep='\n') # sum of multiplication of each row and each column ( (1,1): 1*5 + 2*7)
+
+print()
+
+# ========================================================================
+print('Task 10 — Load and inspect a CSV')
+# ========================================================================
+# Load students.csv with pd.read_csv() into df.
+# Print head(), shape, column names, dtypes, info(), and describe().
+# Expected shape: (8, 4). Expected columns: student_id, name, group, score.
+# Call info() directly rather than print(df.info()).
+# Do not modify the CSV file.
+
+# Write your code below:
+
+df = pd.read_csv("students.csv")
+print(df.head())
+print(df.shape)
+print(df.columns)
+print(df.dtypes)
+print(df.info())
+print(df.describe())
